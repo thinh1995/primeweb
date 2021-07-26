@@ -13,7 +13,9 @@
         "fideloper/proxy": "^4.4",
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
-        "league/fractal": "^0.19.2"
+        "league/fractal": "^0.19.2",
+        "mews/purifier": "^3.3",
+        "spatie/laravel-permission": "^4.2"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",
