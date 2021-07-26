@@ -11,5 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/backend/app.js', 'public/backend/js')
+    .sass('resources/js/backend/assets/app.scss', 'public/backend/css')
+    .extract(['jquery', 'vue', 'axios', 'lodash', 'bootstrap', 'popper.js'])
+    .sourceMaps()
+    .version();
