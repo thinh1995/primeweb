@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('/frontend/css/app.css') }}" rel="stylesheet">
+  @stack('css')
 </head>
 <body>
 <div id="app">

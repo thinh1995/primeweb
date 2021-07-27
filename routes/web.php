@@ -17,6 +17,8 @@
 
 //Auth::routes();
 
+require base_path('routes/web/template.php');
+
 require base_path('routes/web/frontend.php');
 
 require base_path('routes/web/backend.php');

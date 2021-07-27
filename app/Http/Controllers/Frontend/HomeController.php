@@ -44,4 +44,13 @@ class HomeController extends Controller
             ]);
     }
 
+    public function demo($template)
+    {
+        $demoSrc = $template . '.' . env('APP_DOMAIN');
+
+        return view('frontend.demo')
+            ->with([
+                'demoSrc' => $demoSrc
+            ]);
+    }
 }

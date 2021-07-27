@@ -14,7 +14,7 @@
 {{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
 
     <!-- Styles -->
-    <link href="{{ mix('/frontend/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/T006/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -29,8 +29,13 @@
 </div>
 
 <!-- Scripts -->
+@stack('before-scripts')
 <script src="{{ mix('/frontend/js/manifest.js') }}" defer></script>
 <script src="{{ mix('/vendor.js') }}" defer></script>
-<script src="{{ mix('/frontend/js/app.js') }}" defer></script>
+<script src="{{ mix('/T006/js/app.js') }}" defer></script>
+<script>
+  window.menus = {!! json_encode($menus) !!}
+</script>
+@stack('after-scripts')
 </body>
 </html>

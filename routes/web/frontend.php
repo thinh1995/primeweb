@@ -1,11 +1,5 @@
 <?php
 
-Route::domain('{domain}.' . env('APP_DOMAIN'))->group(function () {
-    Route::get('/', function ($domain) {
-        dd(1);
-    });
-});
-
 Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/', [
         'uses' => 'HomeController@index',
@@ -21,12 +15,15 @@ Route::group(['namespace' => 'Frontend'], function () {
     ]);
     Route::post('/login', [
         'uses' => 'HomeController@login',
-        'as' => 'frontend.login'
+        'as' => 'login'
     ]);
-
     Route::get('/themes', [
         'uses' => 'HomeController@themeIndex',
         'as' => 'frontend.theme_index'
+    ]);
+    Route::get('/demo/{template}', [
+        'uses' => 'HomeController@demo',
+        'as' => 'frontend.demo'
     ]);
 });
 

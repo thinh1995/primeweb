@@ -14,5 +14,11 @@ return [
             'policy' => null,
             'observer' => \App\Observers\UITemplateObserver::class,
         ],
+        \App\Models\Menu::class => [
+            'contract' => \App\Repositories\Contracts\MenuRepository::class,
+            'repository' => \App\Repositories\Eloquents\EloquentMenuRepository::class,
+            'policy' => null,
+            'observer' => \App\Observers\MenuObserver::class,
+        ],
     ],
 ];

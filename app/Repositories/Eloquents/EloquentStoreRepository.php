@@ -2,7 +2,9 @@
 
 namespace App\Repositories\Eloquents;
 
-class EloquentStoreRepository extends AbstractEloquentRepository
+use App\Repositories\Contracts\StoreRepository;
+
+class EloquentStoreRepository extends AbstractEloquentRepository implements StoreRepository
 {
 
 }
