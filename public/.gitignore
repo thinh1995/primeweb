@@ -1,2 +1,7 @@
-/backend
-mix-manifest.json
+*
+!.htaccess
+!.gitignore
+!favicon.ico
+!index.php
+!robots.txt
+!web.config

@@ -24,7 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "ant-design-vue": "^2.2.2",
+        "ant-design-vue": "^1.7.6",
         "moment": "^2.29.1"
     }
 }
