@@ -29,10 +29,8 @@
 </div>
 
 <!-- Scripts -->
-@stack('before-scripts')
 <script src="{{ mix('/frontend/js/manifest.js') }}" defer></script>
 <script src="{{ mix('/vendor.js') }}" defer></script>
 <script src="{{ mix('/frontend/js/app.js') }}" defer></script>
-@stack('after-scripts')
 </body>
 </html>

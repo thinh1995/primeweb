@@ -2,7 +2,9 @@
 
 namespace App\Repositories\Eloquents;
 
-class EloquentUITemplateRepository extends AbstractEloquentRepository
+use App\Repositories\Contracts\UITemplateRepository;
+
+class EloquentUITemplateRepository extends AbstractEloquentRepository implements UITemplateRepository
 {
 
 }

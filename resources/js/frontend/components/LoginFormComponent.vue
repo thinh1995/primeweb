@@ -8,10 +8,10 @@
     <a-form-item>
       <a-input
         v-decorator="[
-          'userName',
-          { rules: [{ required: true, message: 'Please input your username!' }] },
+          'email',
+          { rules: [{ required: true, message: 'Please input your email!' }] },
         ]"
-        placeholder="Username"
+        placeholder="Email"
       >
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
@@ -65,6 +65,11 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log('Received values of form: ', values);
+          axios.post('/login', values).then((response) => {
+            if (response.status === 200) {
+              window.location = '/';
+            }
+          });
         }
       });
     },

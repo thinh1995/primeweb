@@ -11,9 +11,22 @@ Route::group(['namespace' => 'Frontend'], function () {
         'uses' => 'HomeController@index',
         'as' => 'frontend.index'
     ]);
-    Route::get('/sign-in', [
-        'uses' => 'HomeController@signIn',
-        'as' => 'frontend.sign_in'
+    Route::get('/home', [
+        'uses' => 'HomeController@index',
+        'as' => 'frontend.index'
+    ]);
+    Route::get('/login', [
+        'uses' => 'HomeController@showLoginForm',
+        'as' => 'frontend.show_login_form'
+    ]);
+    Route::post('/login', [
+        'uses' => 'HomeController@login',
+        'as' => 'frontend.login'
+    ]);
+
+    Route::get('/themes', [
+        'uses' => 'HomeController@themeIndex',
+        'as' => 'frontend.theme_index'
     ]);
 });
 

@@ -24,7 +24,7 @@ Vue.use(Antd);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('MenuComponent', require('./components/MenuComponent.vue').default);
-Vue.component('SignInComponent', require('./components/SignInComponent.vue').default);
+Vue.component('LoginFormComponent', require('./components/LoginFormComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
