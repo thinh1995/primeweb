@@ -1,8 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-  .c
-  <iframe id="demo-iframe" src="http://{{ $demoSrc }}"></iframe>
+  <iframe id="demo-iframe" src="http://{{ $demoSrc }}" frameborder="0" allowfullscreen></iframe>
 @endsection
 
 @push('before-scripts')

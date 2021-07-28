@@ -18,7 +18,7 @@
   @stack('css')
 </head>
 <body>
-<div id="app">
+<div id="app" style="height: 100%">
     <div class="container">
         <div class="row">
             <div class="col-sm">
