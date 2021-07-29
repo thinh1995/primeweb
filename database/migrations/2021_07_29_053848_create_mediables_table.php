@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUITemplatesTable extends Migration
+class CreateMediablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateUITemplatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ui_templates', function (Blueprint $table) {
+        Schema::create('mediables', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('directory');
-            $table->boolean('is_active')->default(true);
-            $table->unsignedBigInteger('created_by')->index();
-            $table->integer('position')->nullable();
+            $table->unsignedBigInteger('media_id');
+            $table->unsignedBigInteger('mediable_id');
+            $table->string('mediable_type');
             $table->timestamps();
-            $table->softDeletes();
+            $table->index(['media_id', 'mediable_id']);
         });
     }
 
@@ -32,6 +30,6 @@ class CreateUITemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('templates');
+        Schema::dropIfExists('mediables');
     }
 }

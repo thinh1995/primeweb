@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenusTable extends Migration
+class CreateSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,21 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('store_id')->index();
+            $table->unsignedBigInteger('settingable_id');
+            $table->string('settingable_type');
             $table->string('name');
             $table->string('key');
-            $table->json('options')->nullable();
-            $table->unsignedBigInteger('created_by')->index();
+            $table->text('description')->nullable();
+            $table->text('value')->nullable();
+            $table->text('field')->nullable();
             $table->boolean('is_active')->default(1);
+            $table->unsignedBigInteger('parent_id')->index()->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->index(['settingable_id', 'settingable_type']);
         });
     }
 
@@ -33,6 +38,6 @@ class CreateMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('settings');
     }
 }

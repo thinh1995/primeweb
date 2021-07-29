@@ -10,11 +10,11 @@ Route::group(['namespace' => 'Frontend'], function () {
         'as' => 'frontend.index'
     ]);
     Route::get('/login', [
-        'uses' => 'HomeController@showLoginForm',
+        'uses' => 'LoginController@showLoginForm',
         'as' => 'frontend.show_login_form'
     ]);
     Route::post('/login', [
-        'uses' => 'HomeController@login',
+        'uses' => 'LoginController@login',
         'as' => 'login'
     ]);
     Route::get('/themes', [

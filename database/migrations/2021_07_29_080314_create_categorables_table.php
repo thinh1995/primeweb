@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUITemplatesTable extends Migration
+class CreateCategorablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateUITemplatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ui_templates', function (Blueprint $table) {
+        Schema::create('categorables', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('directory');
-            $table->boolean('is_active')->default(true);
-            $table->unsignedBigInteger('created_by')->index();
+            $table->unsignedBigInteger('category_id')->index();
+            $table->unsignedBigInteger('categorable_id');
+            $table->string('categorable_type');
             $table->integer('position')->nullable();
             $table->timestamps();
-            $table->softDeletes();
+            $table->index(['categorable_id', 'categorable_type']);
         });
     }
 
@@ -32,6 +31,6 @@ class CreateUITemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('templates');
+        Schema::dropIfExists('categoriable');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUITemplatesTable extends Migration
+class CreateProductSkusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateUITemplatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ui_templates', function (Blueprint $table) {
+        Schema::create('product_skus', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('directory');
-            $table->boolean('is_active')->default(true);
+            $table->unsignedBigInteger('product_id')->index();
+            $table->string('sku');
+            $table->integer('quantity')->nullable();
+            $table->integer('available')->nullable();
+            $table->decimal('cost', 12, 2)->nullable();
+            $table->decimal('price', 12, 2)->nullable();
+            $table->boolean('is_active')->default(1);
             $table->unsignedBigInteger('created_by')->index();
-            $table->integer('position')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +35,6 @@ class CreateUITemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('templates');
+        Schema::dropIfExists('product_skus');
     }
 }

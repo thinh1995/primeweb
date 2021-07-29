@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStoresTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,12 @@ class CreateStoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('template_id')->index()->nullable();
+            $table->unsignedBigInteger('store_id')->index();
             $table->string('name');
-            $table->string('domain');
-            $table->string('alias')->nullable();
-            $table->text('description')->nullable();
-            $table->json('option_page')->nullable();
-            $table->json('homepage')->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->string('slug')->nullable();
             $table->unsignedBigInteger('created_by')->index();
-            $table->integer('position')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -37,6 +31,6 @@ class CreateStoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stores');
+        Schema::dropIfExists('tags');
     }
 }
