@@ -20,5 +20,17 @@ return [
             'policy' => null,
             'observer' => \App\Observers\MenuObserver::class,
         ],
+        \App\Models\Page::class => [
+            'contract' => \App\Repositories\Contracts\PageRepository::class,
+            'repository' => \App\Repositories\Eloquents\EloquentPageRepository::class,
+            'policy' => null,
+            'observer' => \App\Observers\PageObserver::class,
+        ],
+        \App\Models\Category::class => [
+            'contract' => \App\Repositories\Contracts\CategoryRepository::class,
+            'repository' => \App\Repositories\Eloquents\EloquentCategoryRepository::class,
+            'policy' => null,
+            'observer' => \App\Observers\CategoryObserver::class,
+        ],
     ],
 ];
